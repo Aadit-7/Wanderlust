@@ -1,0 +1,133 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+  <style>
+    #filters {
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: 1rem;
+    }
+
+    .filter {
+      /* background-color: blue; */
+      margin-left: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+      opacity: 0.7;
+    }
+    .filter p {
+      font-size: 13px;
+    }
+
+    .filter:hover {
+      opacity: 1;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  </style>
+
+  <div id="filters">
+    <div class="filter">
+      <i class="fa-solid fa-fire"></i>
+      <p>Trending</p>
+    </div>
+    <div class="filter">
+      <i class="fa-solid fa-water"></i>
+      <p>Lake</p>
+    </div>
+    <div class="filter">
+      <i class="fa-solid fa-person-skating"></i>
+      <p>Ice Skating</p>
+    </div>
+    <div class="filter">
+      <i class="fa-solid fa-person-swimming"></i>
+      <p>Amaziong Pools</p>
+    </div>
+    <div class="filter">
+      <i class="fa-brands fa-fort-awesome"></i>
+      <p>Castle</p>
+    </div>
+    <div class="filter">
+      <i class="fa-solid fa-mountain-city"></i>
+      <p>Citi side</p>
+    </div>
+    <div class="filter">
+      <i class="fa-solid fa-tractor"></i>
+      <p>Farm</p>
+    </div>
+    <div class="filter">
+      <i class="fa-solid fa-bed"></i>
+      <p>Hotels</p>
+    </div>
+    <div class="filter">
+      <i class="fa-regular fa-snowflake"></i>
+      <p>Icelands</p>
+    </div>
+    <div class="filter">
+      <i class="fa-solid fa-campground"></i>
+      <p>Camping</p>
+    </div>
+    <div class="filter">
+      <i class="fa-solid fa-golf-ball-tee"></i>
+      <p>Golfing</p>
+    </div>
+    <div class="filter">
+      <i class="fa-solid fa-fish"></i>
+      <p>Fishing</p>
+    </div>
+    <div class="filter">
+      <i class="fa-solid fa-champagne-glasses"></i>
+      <p>Beer-Bar</p>
+    </div>
+    <div class="filter">
+      <i class="fa-solid fa-city"></i>
+      <p>Top cities</p>
+    </div>
+    <div class="filter">
+      <i class="fa-solid fa-bowling-ball"></i>
+      <p>Play</p>
+    </div>
+    <div class="filter">
+      <i class="fa-solid fa-umbrella-beach"></i>
+      <p>Beach</p>
+    </div>
+    <div class="filter">
+      <i class="fa-solid fa-film"></i>
+      <p>Theaters</p>
+    </div>
+    <div class="filter">
+      <i class="fa-solid fa-paw"></i>
+      <p>Zoo</p>
+    </div>
+    <div class="filter">
+      <i class="fa-solid fa-diamond"></i>
+      <p>Casino</p>
+    </div>
+    <div class="filter">
+      <i class="fa-brands fa-airbnb"></i>
+      <p>Featured</p>
+    </div>
+  </div>
+  <div class="row1 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 row-cols-xl-1">
+    <% for(let listing of listings) { %>
+    <div class="card listing-card mb-1" style="width: 21rem">
+      <a href="/listings/<%= listing._id %>">
+        <img
+          src="<%= listing.img.url %>"
+          class="card-img-top"
+          alt="listing_img"
+        />
+        <div class="card-body">
+          <p class="card-text">
+            <b><%= listing.title %> </b><br />
+            &#8377;<%= listing.price.toLocaleString("en-IN") %>/per night
+          </p>
+        </div>
+      </a>
+    </div>
+    <% } %>
+  </div>
+</body>
